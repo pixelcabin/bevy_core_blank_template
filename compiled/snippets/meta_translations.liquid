@@ -1,0 +1,8 @@
+<div class="meta-translations" style="display: none">
+  <ul>
+    {% assign properties = 'color,country,style,abv,flavor' | split: ',' %}
+    {% for property in properties %}
+      <li data-base-key="{{ property }}" data-translated-key="{{ 'general.meta_translations.' | append: property | t }}"></li>
+    {% endfor %}
+  </ul>
+</div>

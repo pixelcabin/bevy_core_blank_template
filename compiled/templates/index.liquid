@@ -1,0 +1,69 @@
+{% assign welcome_banner_filename = "welcome" %}
+<section class="welcome-banner" data-partial-window-height data-interchange="
+      [{{ welcome_banner_filename | append: '_small.jpg' | asset_url }}, (default)],
+      [{{ welcome_banner_filename | append: '_medium.jpg' | asset_url }}, (medium)],
+      [{{ welcome_banner_filename | append: '_large.jpg' | asset_url }}, (large)],
+      [{{ welcome_banner_filename | append: '_xlarge.jpg' | asset_url }}, (xlarge)],
+      [{{ welcome_banner_filename | append: '_xxlarge.jpg' | asset_url }}, (xxlarge)],
+       ">
+  <h1>{{ settings.home_welcome_heading }}</h1>
+  <h4>{{ settings.home_welcome_subheading }}</h4>
+
+  {% comment %}
+  {% include 'search' %}
+  {% endcomment %}
+
+</section>
+
+<section class="top-beers">
+  {% include 'product_carousel', collection_linklist: 'top-beers' %}
+</section>
+
+<section class="featured-products">
+  {% include 'featured_products', collection_linklist: 'featured-products', home_featured: true %}
+</section>
+
+{% include 'cta_block',
+cta_class: 'storytelling-marketing',
+cta_title: settings.home_marketing_box_title,
+cta_base_filename: 'home_marketing',
+cta_content: settings.home_marketing_box_text,
+cta_button_link: settings.home_marketing_box_link,
+cta_button_label: settings.home_marketing_box_button,
+cta_button_id: 'home-storytelling-marketing-1-see-more'
+%}
+
+<section class="store-info-blocks" data-equalizer="cta-content" data-equalizer-mq="medium-up">
+  {% include 'cta_block',
+  feature_image: true,
+  feature_vector: true,
+  cta_class: 'info-block',
+  cta_title: settings.info_box_one_title,
+  cta_base_filename: 'info_box_one',
+  cta_content: settings.info_box_one_text,
+  cta_button_link: settings.info_box_one_link,
+  cta_button_label: settings.info_box_one_button
+  %}
+
+  {% include 'cta_block',
+  feature_image: true,
+  feature_vector: true,
+  cta_class: 'info-block',
+  cta_title: settings.info_box_two_title,
+  cta_base_filename: 'info_box_two',
+  cta_content: settings.info_box_two_text,
+  cta_button_link: settings.info_box_two_link,
+  cta_button_label: settings.info_box_two_button
+  %}
+
+  {% include 'cta_block',
+  feature_image: true,
+  feature_vector: true,
+  cta_class: 'info-block',
+  cta_title: settings.info_box_three_title,
+  cta_base_filename: 'info_box_three',
+  cta_content: settings.info_box_three_text,
+  cta_button_link: settings.info_box_three_link,
+  cta_button_label: settings.info_box_three_button
+  %}
+</section>

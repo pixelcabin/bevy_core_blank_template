@@ -1,0 +1,54 @@
+<footer>
+  <section class="mailing-list">
+    <div class="message">{{ 'general.footer.mailing_list.message' | t }}</div>
+
+    <div class="email" data-email-reveal>
+      {% include 'mailchimp_signup' %}
+    </div>
+  </section>
+
+  <section class="footer-links">
+    <div class="social">
+      <ul>
+        {% for link in linklists.footer-social.links %}
+          <li><a href="{{ link.url }}" target="_blank" id="footer-social-{{ link.title | handleize }}"><img src="{{ link.title | downcase | append: '.svg' | asset_url }}" /></a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="site-map">
+      <ul class="footer-linklist">
+        {% for link in linklists.footer.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+
+      <ul class="footer-terms">
+        {% for link in linklists.footer-terms.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+
+      <div class="site-copyright">&copy; Patagonia Brewing Company {{ 'now' | date: "%Y" }}</div>
+
+      <div class="disclaimer">
+        <a class="data-fiscal" href="http://qr.afip.gob.ar/?qr=OB75AUcgxa_XPdsKN65hPQ,," target="_F960AFIPInfo">
+          <img src="https://www.afip.gob.ar/images/f960/DATAWEB.jpg" border="0">
+        </a>
+
+        {% if settings.digicert_seal %}
+          <!-- Begin DigiCert site seal HTML and JavaScript -->
+          <div id="DigiCertClickID_sYUbh0kq" data-language="en">
+            <a href="https://www.digicert.com/unified-communications-ssl-tls.htm" target="_blank">Multi Domain SAN</a>
+          </div>
+          <script type="text/javascript">
+            var __dcid = __dcid || [];__dcid.push(["DigiCertClickID_sYUbh0kq", "3", "m", "black", "sYUbh0kq"]);(function(){var cid=document.createElement("script");cid.async=true;cid.src="//seal.digicert.com/seals/cascade/seal.min.js";var s = document.getElementsByTagName("script");var ls = s[(s.length - 1)];ls.parentNode.insertBefore(cid, ls.nextSibling);}());
+          </script>
+          <!-- End DigiCert site seal HTML and JavaScript -->
+        {% endif %}
+
+        <p>{{ 'general.footer.legal' | t }}</p>
+      </div>
+    </div>
+  </section>
+</footer>

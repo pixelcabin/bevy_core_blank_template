@@ -1,0 +1,8 @@
+<div class="shipping-info">
+  <p>{{ 'product_page.shipping_heading' | t }}</p>
+  <p>{{ 'product_page.shipping_info' | t }}</p>
+  {% assign sanitized_product_type = product.type | handleize %}
+  {% if sanitized_product_type == 'beer' or sanitized_product_type == 'beerpack' %}
+    <img src="{{ 'age_badge.svg' | asset_url }}" alt="">
+  {% endif %}
+</div>

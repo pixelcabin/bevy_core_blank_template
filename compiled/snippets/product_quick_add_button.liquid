@@ -1,0 +1,8 @@
+<div data-quick-add class="quick-add-to-cart{% if this_product.variants.first.inventory_quantity == 0 %} soldout{% endif %}" {% if this_product %}data-handle="{{ this_product.handle }}"{% else %}rv-data-handle="product.handle"{% endif %}>
+  <div gtm-add-to-cart class="add-button" {% if this_product %}data-cart-add="{{ this_product.variants.first.id }}"{% else %}rv-data-cart-add="product | first_variant_id"{% endif %}
+  {% include 'gtm_add_product_tags', gtm_product: this_product, gtm_variant: this_product.variants.first, gtm_quantity: 1, rivets: gtm_rivets %}>
+    <span>1</span>
+    {% include 'cart_plus_svg' %}
+  </div>
+  <div class="soldout-message">{{ 'general.actions.soldout' | t }}</div>
+</div>

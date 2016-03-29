@@ -1,0 +1,10 @@
+<div class="cart-icon-wrapper" data-cartpanel-open>
+  <div class="cart-button" id="cart-toggle">
+    {% include 'cart_icon_svg' %}
+  </div>
+  <div class="cart-count-wrapper" data-cart-count-wrapper data-cartpanel-open>
+    <div class="cart-count" data-cart-count {% if cart.item_count > 0 %} class="visible"{% endif %}>
+      {{ cart.item_count }}
+    </div>
+  </div>
+</div>

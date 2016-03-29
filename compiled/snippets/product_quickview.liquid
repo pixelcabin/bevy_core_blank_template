@@ -1,0 +1,29 @@
+<section class="quickview" id="quickview" data-asset-url="{{ '--filename--' | asset_url }}">
+  <div class="close" data-hide-quickview>X</div>
+  <div class="product-image">
+    <img rv-src="product.featured_image | productImageSize 'medium'" alt="{{ product.title }}" />
+  </div>
+
+  <a rv-href="product.url">{{ 'general.actions.view_product' | t }}</a>
+
+  <ul class="product-meta">
+    <li rv-each-tag="product.tags" rv-show="tag | allowed_meta 'color,country,style,abv' '{{ settings.theme_locale }}'" rv-class="tag | base_meta_key | handleize | prepend 'meta-detail '">
+      <div class="detail-title">{ tag | translate_meta_key }</div>
+      <div rv-class="tag | translate_meta_value '{{ settings.theme_locale }}' | handleize | prepend 'value '" rv-html="tag | formatted_meta_value '{{ settings.theme_locale }}'"></div>
+    </li>
+  </ul>
+
+  <div class="title" rv-text="product.title"></div>
+
+  <div class="details">
+    <span class="price">{ product.price | money Currency.currentCurrency }</span>
+    <span class="volume">
+      <div rv-each-tag="product.tags" rv-show="tag | allowed_meta 'volume' '{{ settings.theme_locale }}'" rv-class="tag | base_meta_key | handleize | prepend 'meta-detail '">
+        <div class="detail-title">{ tag | translate_meta_key }</div>
+        <div rv-class="tag | translate_meta_value '{{ settings.theme_locale }}' | handleize | prepend 'value '" rv-html="tag | formatted_meta_value '{{ settings.theme_locale }}'"></div>
+      </div>
+    </span>
+  </div>
+
+  {% include 'product_quick_add_button', this_product: this_product, gtm_rivets: 'quickview' %}
+</section>

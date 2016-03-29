@@ -1,0 +1,27 @@
+/*--- 0.1.0-beta ---*/
+/*------------------------------------------------
+This is the global theme variables stylesheet - any CSS properties that need to be set on a per theme basis
+should be referenced here, and repeated within the relevant stylesheet with the !default flag.
+------------------------------------------------*/
+
+// PROMO BAR
+//------------------------------------------------
+//$promo-bar-background-color: #0a161d;
+
+// CART
+//------------------------------------------------
+//$cart_vertical_padding: 30px;
+//$cart_panel_width: 320px;
+//$cart_line_item_vertical_padding: 20px;
+//$cart_line_item_image_max_height: 100px;
+//$cart_line_item_image_columns: 2.5;
+//$cart_increment_height: 20px;
+//$cart_increment_margin_top: 5px;
+
+// BEER ATTRIBUTE COLOURS
+//------------------------------------------------
+//$beer_lightest: #f6f576;
+//$beer_light: #f9e02a;
+//$beer_medium: #e95630;
+//$beer_darker: #5d3815;
+//$beer_darkest: #3c2815;

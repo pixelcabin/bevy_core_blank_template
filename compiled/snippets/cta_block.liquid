@@ -1,0 +1,65 @@
+{% comment %}
+<!--
+Arguments:
+cta_class [String]
+cta_title [String]
+cta_base_filename [String]
+cta_content [Text]
+cta_button_link [String]
+cta_button_label [String]
+feature_image [Boolean]
+feature_vector [Boolean]
+
+Image assets need to be added with the following filename structure:
+> `cta_base_filename_size.jpg` - e.g. `home_about_small.jpg`
+
+The following sizes should be created:
+* small: 640px
+* medium: 1024px
+* large: 1440px
+* xlarge: 1920px
+* xxlarge: 3000px
+
+feature_image:
+This should be true to use the image in a standalone block instead as the background image.
+feature_vector:
+This should be true if asset is an svg file, and does not need different sizes to help with page load time.
+
+Attach data-equalizer="cta-content" to parent element to have child .flex-wrapper heights adjust accordingly.
+
+-->
+{% endcomment %}
+
+<section class="cta-block {{ cta_class }}" alt="{{ cta_title }}"
+         {% unless feature_image %}data-interchange="
+      [{{ cta_base_filename | append: '_small.jpg' | asset_url }}, (default)],
+      [{{ cta_base_filename | append: '_medium.jpg' | asset_url }}, (medium)],
+      [{{ cta_base_filename | append: '_large.jpg' | asset_url }}, (large)],
+      [{{ cta_base_filename | append: '_xlarge.jpg' | asset_url }}, (xlarge)],
+      [{{ cta_base_filename | append: '_xxlarge.jpg' | asset_url }}, (xxlarge)],
+       "{% endunless %}>
+
+  {% if feature_image %}
+    <{% if feature_vector %}img src="{{ cta_base_filename | append: '.svg' | asset_url }}"{% else %}div class="feature-image" data-interchange="
+        [{{ cta_base_filename | append: '_small.jpg' | asset_url }}, (default)],
+        [{{ cta_base_filename | append: '_medium.jpg' | asset_url }}, (medium)],
+        [{{ cta_base_filename | append: '_large.jpg' | asset_url }}, (large)],
+        [{{ cta_base_filename | append: '_xlarge.jpg' | asset_url }}, (xlarge)],
+        [{{ cta_base_filename | append: '_xxlarge.jpg' | asset_url }}, (xxlarge)],
+  {% endif %}
+  ">
+  {% unless feature_vector %}
+    </div>
+  {% endunless %}
+  {% endif %}
+  <div class="cta-content">
+    <h3>{{ cta_title }}</h3>
+    <hr>
+    <div class="flex-wrapper" data-equalizer-watch="cta-content">
+      <p>{{ cta_content }}</p>
+    </div>
+    {% unless cta_button_label == blank %}
+      <a href="{{ cta_button_link }}" id="{{ cta_button_id }}">{{ cta_button_label }}</a>
+    {% endunless %}
+  </div>
+</section>

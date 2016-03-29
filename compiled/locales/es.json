@@ -1,0 +1,191 @@
+{
+  "general": {
+    "actions": {
+      "shop": "Comprá",
+      "faq": "Preguntas Frecuentes",
+      "no": "No",
+      "yes": "Si",
+      "add_to_cart": "Agregar al carrito",
+      "added": "Producto agregado!",
+      "checkout": "Finalizar compra",
+      "submit": "Enviar",
+      "cancel": "Cancelar",
+      "create": "Crear",
+      "more": "Más",
+      "search": "Buscar",
+      "edit": "Editar",
+      "delete": "Borrar",
+      "soldout": "Agotado",
+      "view_product": "Ver Producto"
+    },
+    "forms": {
+      "first_name": "Nombre",
+      "last_name": "Apellido",
+      "email": "Email",
+      "password": "Contraseña"
+    },
+    "nav": {
+      "account": "Mi cuenta",
+      "bag": "Mi carrito"
+    },
+    "footer": {
+      "legal": "Beber con moderación. Prohibida su venta a menores de 18 años",
+      "mailing_list": {
+        "message": "Suscribite a nuestro newsletter para recibir novedades y promociones",
+        "email_input_placeholder": "Ingresá tu mail",
+        "email_input_submit": "Suscribirme",
+        "success_message": "Suscripción exitosa",
+        "invalid_entry": "Este email es inválido"
+      }
+    },
+    "meta_translations" : {
+      "color": "Color",
+      "country": "País",
+      "style": "Estilo",
+      "abv": "ABV",
+      "flavor": "Sabor"
+    },
+    "sort": {
+      "featured": "Destacado",
+      "price_asc": "Precio (menor a mayor)",
+      "price_desc": "Precio (mayor a menor)",
+      "title_asc": "A-Z",
+      "title_desc": "Z-A",
+      "best_selling": "Más elegidos"
+    }
+  },
+  "404": {
+    "title": "No pudimos encontrar lo que estás buscando",
+    "link": "Ir a la home"
+  },
+  "index": {
+  },
+  "age_gate": {
+    "welcome": "Bienvenido a BevyBar",
+    "privacy_notice": "política de privacidad",
+    "age_notice": "Beber con moderación. Prohibida su venta a menores de 18 años",
+    "not_of_age": "Al confirmar ser mayor de edad manifiesta su conformidad con los términos de confidencialidad y el uso de cookies de este sitio web. Para más información, lea nuestra ",
+    "back": "Volver",
+    "are_you_of_age": "¿Sos mayor de edad?"
+  },
+  "product_page": {
+    "by": "por",
+    "rating": "Ranking",
+    "quantity": "Cantidad",
+    "product_info": "Información del producto",
+    "shipping_heading": "Envíos a todo el país",
+    "shipping_info": "Envío gratis a CABA y GBA en compras mayores a $600",
+    "choose_amount": "Elegí la cantidad",
+    "in_the_pack": "en el pack",
+    "suggested_products": "Productos recomendados",
+    "included_products": "Productos incluidos",
+    "single": "Individual",
+    "pack": "Pack",
+    "add_to_cart": "agregar al carrito",
+    "not_for_sale": "Este producto no se vende en forma individual"
+  },
+  "collections": {
+    "sort_by": "Filtrar por",
+    "view_all_in": "Ver productos incluidos"
+  },
+  "pages": {
+  },
+  "cart": {
+    "heading": "Mi carrito",
+    "empty_cart": "No hay productos en tu carrito",
+    "subtotal": "Subtotal",
+    "item_single": "Item",
+    "item_plural": "Items",
+    "disclaimer": "El costo de envío será calculado antes de ingresar el pago"
+  },
+  "customer_pages": {
+    "general": {
+      "order": "Pedido",
+      "password": "Contraseña",
+      "password_confirmation": "Confirmación de contraseña",
+      "first_name": "Nombre",
+      "last_name": "Apellido",
+      "company": "Empresa",
+      "address_one": "Dirección",
+      "address_two": "Dirección - datos adicionales",
+      "city": "Ciudad",
+      "country": "País",
+      "province": "Provincia",
+      "post-code": "Código Postal",
+      "phone": "Teléfono",
+      "store": "Negocio",
+      "account": "Account",
+      "my_account": "Mi cuenta",
+      "login": "Ingresar",
+      "logout": "Cerrar sesión",
+      "email_address": "Email",
+      "primary_address": "Dirección preseleccionada",
+      "back_to_account": "Volver a mi cuenta",
+      "order_properties": {
+        "date": "Fecha",
+        "payment_status": "Estado del pago",
+        "fulfillment_status": "Estado del pedido",
+        "items": "Items",
+        "subtotal": "Subtotal",
+        "total": "Total",
+        "placed_on": "Orden ingresada el",
+        "discount": "Descuento",
+        "shipping": "Envío",
+        "tax": "Impuestos",
+        "order_cancelled": "Pedido cancelado",
+        "on": "en",
+        "billing_address": "Dirección de facturación",
+        "shipping_address": "Dirección de entrega",
+        "tax_invoice": "Factura"
+      }
+    },
+    "register": {
+      "title": "Registrarme"
+    },
+    "login_signup": {
+      "title": "Ingresar",
+      "registered_customers": "Clientes registrados",
+      "new_customers": "Nuevos clientes",
+      "new_customers_blurb": "Registrate y comprá en forma rápida y segura",
+      "register_now_button": "Registrarme",
+      "create_account": "Crear"
+    },
+    "password_reset": {
+      "trigger": {
+        "title": "Resetear contraseña",
+        "blurb": "Te vamos a enviar un email para que puedas resetear tu contraseña",
+        "forgot_password_link": "¿Olvidaste tu contraseña?",
+        "instructions_sent": "Ya te enviamos un mail con las instrucciones para resetear tu contraseña"
+      },
+      "complete": {
+        "title": "Resetear contraseña",
+        "blurb": "Por favor ingresá una nueva contraseña"
+      }
+    },
+    "activate_account": {
+      "title": "Activar cuenta",
+      "blurb": "Por favor ingresá una contraseña para tu cuenta",
+      "activate_account": "Activar cuenta",
+      "decline_invitation": "No aceptar invitación"
+    },
+    "my_account": {
+      "title": "Mi cuenta",
+      "customer_greeting": "Hola!",
+      "view_addresses": "Ver direcciones",
+      "my_orders": "Mis pedidos",
+      "no_orders": "Todavía no realizaste ningún pedido"
+    },
+    "view_order": {
+      "download_tax_invoice": "Descargar factura"
+    },
+    "addresses": {
+      "title": "Mis direcciones",
+      "contact_details": "Mi información",
+      "add_new_address": "Agregar dirección",
+      "set_as_default": "Marcar como dirección preseleccionada",
+      "add_address": "Agregar dirección",
+      "update_address": "Actualizar dirección",
+      "set_as_primary": "¿Marcar como domicilio favorito?"
+    }
+  }
+}

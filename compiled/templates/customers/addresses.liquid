@@ -1,0 +1,123 @@
+<div class="customer-content-wrapper">
+
+  <div class="address-container">
+    <h4>{{ 'customer_pages.addresses.contact_details' | t }}</h4>
+
+    <a href="#" id="open_new_address" class="open_new_address" data-reveal-id="add_address">
+      {{ 'customer_pages.addresses.add_new_address' | t }}
+    </a>
+
+    <!--Add Address Form -->
+    <div id="add_address" class="add-address customer-address-form" data-reveal>
+      {% form 'customer_address', customer.new_address %}
+      <h4>{{ 'customer_pages.addresses.add_new_address' | t }}</h4>
+      <div class="customer-address-table">
+        <input type="text" id="address-first-name-new" name="address[first_name]" value="{{ form.first_name }}" size="40" placeholder="{{ 'customer_pages.general.first_name' | t }}" />
+
+        <input type="text" id="address-last-name-new" name="address[last_name]" value="{{ form.last_name }}" size="40" placeholder="{{ 'customer_pages.general.last_name' | t }}" />
+
+        <input type="text" id="address-company-new" name="address[company]" value="{{ form.company }}" size="40" placeholder="{{ 'customer_pages.general.company' | t }}" />
+
+        <input type="text" id="address-address1-new" name="address[address1]" value="{{ form.address1 }}" size="40" placeholder="{{ 'customer_pages.general.address_one' | t }}" />
+
+        <input type="text" id="address-address2-new" name="address[address2]" value="{{ form.address2 }}" size="40" placeholder="{{ 'customer_pages.general.address_two' | t }}" />
+
+        <input type="text" id="address-city-new" name="address[city]" value="{{ form.city }}" size="40" placeholder="{{ 'customer_pages.general.city' | t }}" />
+
+        <label for="address-country-new">{{ 'customer_pages.general.country' | t }}</label>
+        <select id="address-country-new" name="address[country]" data-default="{{ form.country }}">{{ country_option_tags }}</select>
+
+        <div id="address-province-container-new" style="display:none" class="form-row">
+          <label for="address-province-new">{{ 'customer_pages.general.province' | t }}</label>
+          <select id="address-province-new" name="address[province]" data-default="{{ form.province }}"></select>
+        </div>
+
+        <input type="text" id="address-zip-new" name="address[zip]" value="{{ form.zip }}" size="40" placeholder="{{ 'customer_pages.general.post-code' | t }}" />
+
+        <input type="text" id="address-phone-new" name="address[phone]" value="{{ form.phone }}" size="40" placeholder="{{ 'customer_pages.general.phone' | t }}" />
+
+        {{ form.set_as_default_checkbox }}<label for="address_default_address_new" class="default_address">{{ 'customer_pages.addresses.set_as_default' | t }}</label>
+      </div>
+
+      <div class="update-address">
+        <input class="btn" type="submit" value="{{ 'customer_pages.addresses.add_address' | t }}" />
+        <a href="#" class="cancel close-reveal-modal" aria-label="Close">{{ 'general.actions.cancel' | t }}</a>
+      </div>
+      {% endform %}
+    </div>
+    <!-- End Add Address Form -->
+
+    <!-- Customer Addresses -->
+    <section class="addresses">
+      {% paginate customer.addresses by 10 %}
+      {% for address in customer.addresses %}
+      <section class="user-address" data-address-id="{{ address.id }}">
+        <div id="view-address-{{ address.id }}" class="customer-address">
+          {% if address == customer.default_address %}
+          <h4>Default Address</h4>
+          {% endif %}
+          <p class="address-actions">
+            <span class="edit-address"><a data-reveal-id="edit_address_{{ address.id }}">{{ 'general.actions.edit' | t }}</a></span> or
+            <span class="delete-address">{{ 'general.actions.delete' | t | delete_customer_address_link: address.id }}</span>
+          </p>
+
+          <div class="view-address">
+            <p>{{ address.first_name }} {{address.last_name }}</p>
+            <p>{{ address.phone }}</p>
+            <p>{{ address.company }}</p>
+            <p class="street">{{ address.street }}</p>
+            <p>{{ address.city }} {% if address.province_code %}, {{ address.province_code }}{% endif %}</p>
+            <p>{{ address.zip }}</p>
+            <p>{{ address.country }}</p>
+          </div>
+        </div>
+
+        <div id="edit_address_{{ address.id }}" class="customer-address-form" data-reveal>
+          <!-- Edit Address Form -->
+          {% form 'customer_address', address %}
+          <h4>Edit {{ address.street }}</h4>
+          <input type="text" id="address-first-name-{{ form.id }}" name="address[first_name]" value="{{ form.first_name }}" size="40" placeholder="{{ 'general.forms.first_name' | t }}" />
+
+          <input type="text" id="address-last-name-{{ form.id }}" name="address[last_name]" value="{{ form.last_name }}" size="40" placeholder="{{ 'general.forms.last_name' | t }}" />
+
+          <input type="text" id="address-company-{{ form.id }}" name="address[company]" value="{{ form.company }}" size="40" placeholder="{{ 'customer_pages.general.company' | t }}" />
+
+          <input type="text" id="address-address1-{{ form.id }}" name="address[address1]" value="{{ form.address1 }}" size="40" placeholder="{{ 'customer_pages.general.address_one' | t }}" />
+
+
+          <input type="text" id="address-address2-{{ form.id }}" name="address[address2]" value="{{ form.address2 }}" size="40" placeholder="{{ 'customer_pages.general.address_two' | t }}" />
+
+          <input type="text" id="address-city-{{ form.id }}" name="address[city]" value="{{ form.city }}" size="40" placeholder="{{ 'customer_pages.general.city' | t }}" />
+
+          <label for="address-country-{{ form.id }}">{{ 'customer_pages.general.country' | t }}</label>
+          <select id="address-country-{{ form.id }}" name="address[country]" data-default="{{ form.country }}">{{ country_option_tags }}</select>
+
+          <div id="address-province-container-{{ form.id }}" style="display:none" class="form-row">
+            <label for="address-province-{{ form.id }}">{{ 'customer_pages.general.province' | t }}</label>
+            <select id="address-province-{{ form.id }}" name="address[province]" data-default="{{ form.province }}"></select>
+          </div>
+
+          <input type="text" id="address-zip-{{ form.id }}" name="address[zip]" value="{{ form.zip }}" size="40" placeholder="{{ 'customer_pages.general.post-code' | t }}" />
+
+          <input type="text" id="address-phone-{{ form.id }}" name="address[phone]" value="{{ form.phone }}" size="40" placeholder="{{ 'customer_pages.general.phone' | t }}" />
+
+          {{ form.set_as_default_checkbox }}
+          <label for="address_default_address_new" class="default_address">{{ 'customer_pages.addresses.set_as_primary' | t }}</label>
+
+          <div class="update-address">
+            <input class="btn" type="submit" value="{{ 'customer_pages.addresses.update_address' | t }}" />
+            <a href="#" class="cancel close-reveal-modal" aria-label="Close">{{ 'general.actions.cancel' | t }}</a>
+          </div>
+          {% endform %}
+          <!-- End Edit Address Form -->
+        </div>
+      </section>
+      {% endfor %}
+
+      <div id="address-pagination">{{ paginate | default_pagination }}</div>
+      {% endpaginate %}
+
+      <p class="return"><a href="/account">{{ 'customer_pages.general.back_to_account' | t }}</a></p>
+    </section>
+  </div>
+</div>

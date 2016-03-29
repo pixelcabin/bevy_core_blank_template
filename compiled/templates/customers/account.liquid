@@ -1,0 +1,65 @@
+<div class="customer-content-wrapper account-page">
+
+  <p class="sign-out">
+    {% capture sign_out_link %}{{ 'customer_pages.general.logout' | t }}{% endcapture %}
+    <span class="name">{{ 'customer_pages.my_account.customer_greeting' | t }}, {{ customer.name }}</span> | {{ sign_out_link | customer_logout_link }}
+  </p>
+
+  <hr />
+
+  <section class="customer">
+    <h4>{{ 'customer_pages.general.email_address' | t }}</h4>
+    <p class="email">{{ customer.email }}</p>
+
+    {% if customer.default_address != nil %}
+    <h4>{{ 'customer_pages.general.primary_address' | t }}</h4>
+    <p class="address1">{{ customer.default_address.address1 }}</p>
+    {% if customer.default_address.address2 != "" %}
+    <p class="address2">{{ customer.default_address.address2 }}</p>
+    {% endif %}
+    <p class="city">{{ customer.default_address.city}}, {% if address.province_code %}{{customer.default_address.province_code}}, {% endif %}{{customer.default_address.country}}</p>
+    <p class="zip">{{ customer.default_address.zip}}</p>
+    <p class="phone">{{ customer.default_address.phone }}</p>
+    {% endif %}
+
+    <p>
+      <a href="/account/addresses" class="view-address-toggle">{{ 'customer_pages.my_account.view_addresses' | t }} {% if customer.addresses_count > 1 %}({{ customer.addresses_count }}){% endif %}</a>
+    </p>
+  </section>
+
+  <hr />
+
+  <section class="orders">
+    <h4>{{ 'customer_pages.my_account.my_orders' | t }}</h4>
+
+    {% if customer.orders.size != 0 %}
+    <table>
+      <thead>
+        <tr>
+          <th>{{ 'customer_pages.general.order' | t }}</th>
+          <th>{{ 'customer_pages.general.order_properties.date' | t }}</th>
+          <th class="payment-status">{{ 'customer_pages.general.order_properties.payment_status' | t }}</th>
+          <th class="fulfillment-status">{{ 'customer_pages.general.order_properties.fulfillment_status' | t }}</th>
+          <th>{{ 'customer_pages.general.order_properties.items' | t }}</th>
+          <th class="total">{{ 'customer_pages.general.order_properties.total' | t }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order in customer.orders %}
+          <tr class="{% if order.cancelled %}cancelled_order{% endif %}">
+            <td>{{ order.name | link_to: order.customer_url }}</td>
+            <td>{{ order.created_at | date: "%b %d, %Y" }}</td>
+            <td class="payment-status">{{ order.financial_status_label }}</td>
+            <td class="fulfillment-status">{{ order.fulfillment_status_label }}</td>
+            <td>{{ order.line_items.size }}</td>
+            <td data-price-fr>{{ order.total_price | money }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    {% else %}
+      <p>{{ 'customer_pages.my_account.no_orders' | t }}</p>
+    {% endif %}
+  </section>
+</div>

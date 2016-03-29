@@ -1,0 +1,23 @@
+[33mcommit cbdc62c976ddab12c7f96659635ed342b2bc089a[m
+Author: Michael Shannon <michaelrshannon@gmail.com>
+Date:   Tue Mar 29 11:54:59 2016 +0100
+
+    Removed url from Gruntfile
+
+[33mcommit 4769c99432d31ad5ccad615e6e08b43ed608541c[m
+Author: Michael Shannon <michaelrshannon@gmail.com>
+Date:   Fri Mar 25 13:45:17 2016 +0000
+
+    Updated blank template to match new packages
+
+[33mcommit 25a7b8dc90d6dac26ae3b7c44fecd03a1f8e932e[m
+Author: Michael Shannon <michaelrshannon@gmail.com>
+Date:   Thu Mar 24 14:40:33 2016 +0000
+
+    Updated Readme
+
+[33mcommit 3cf7266e9f531b5631393b6dac6c6b47a6d66542[m
+Author: Michael Shannon <michaelrshannon@gmail.com>
+Date:   Thu Mar 24 14:39:15 2016 +0000
+
+    Initialised bevy_core blank template repo

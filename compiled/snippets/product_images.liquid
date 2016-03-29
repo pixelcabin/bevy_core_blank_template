@@ -1,0 +1,7 @@
+{% for image in product.images %}
+{% unless image.id == product.featured_image.id %}
+<div class="image-wrapper">
+  <img data-interchange="[{{ image | product_img_url: '1024x1024' }}, (default)], [{{ image | product_img_url: '2048x2048' }}, (xlarge)]" />
+</div>
+{% endunless %}
+{% endfor %}

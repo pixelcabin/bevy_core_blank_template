@@ -1,0 +1,15 @@
+{% if settings.show_promo_bar == true %}
+<section class="promo-bar">
+  <div class="overlay-layer"></div>
+  <div class="promo-content">
+    <div class="promo-shipping">
+      {% include 'shipping_svg' %}
+    </div>
+    {{ settings.promo-bar-text }}
+  </div>
+
+  <div class="promo-close" data-promo-close>
+    {% include 'close_svg' %}
+  </div>
+</section>
+{% endif %}

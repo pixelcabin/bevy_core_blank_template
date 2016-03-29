@@ -1,0 +1,14 @@
+<div class="product-grid-wrapper">
+  <div class="featured-product-thumbnail">
+    {% for link in linklists.homepage-featured-left.links %}
+      {% include 'featured_product_thumbnail', this_link: link %}
+      {% include 'data_layer_product_impressions', impression_product: link.object, list: 'Featured Products' %}
+    {% endfor %}
+  </div>
+  <div class="featured-product-thumbnail">
+    {% for link in linklists.homepage-featured-right.links %}
+      {% include 'featured_product_thumbnail', this_link: link %}
+      {% include 'data_layer_product_impressions', impression_product: link.object, list: 'Featured Products', position: 1 %}
+    {% endfor %}
+  </div>
+</div>

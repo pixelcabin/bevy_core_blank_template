@@ -1,0 +1,47 @@
+<section class="cart fs-navigation-element fs-navigation-push-nav fs-navigation-push-right-nav fs-navigation__0 fs-navigation-enabled fs-navigation-animated" id="cart" data-navigation-handle="#cart-toggle" data-navigation-content="#content">
+  <section class="cart-view" data-cart-view="data-cart-view">
+    <div class="back-arrow" data-cartpanel-close>
+      {% include 'exit_cart_svg' %}
+    </div>
+    <h1>{{ 'cart.heading' | t }}</h1>
+
+    <div rv-show="cart.item_count | lt 1" class="empty-cart">
+      {{ 'cart.empty_cart' | t }}
+    </div>
+
+    <ul data-cart-items>
+      <li rv-each-item="cart.items" rv-data-handle="item.handle" rv-data-tags="item.tags" data-cart-item rv-data-qty="item.quantity" rv-data-pack-size="item.variant_title | packSize" rv-product-type="item.product_type | handleize" lang="{{ settings.theme_locale }}">
+        <div class="image">
+          <img rv-src="item.image | productImageSize 'medium'" alt="Product Image">
+          <a rv-href="item.url"></a>
+        </div>
+
+        <div class="info">
+          <div class="title" rv-text="item.product_title"></div>
+          <div class="size">{ item.variant_options | arrayElement 0 }</div>
+          <div class="price" rv-html="item.line_price | money Currency.currentCurrency"></div>
+          <div class="quantity">
+            <div class="increment" data-increment-minus gtm-remove-from-cart rv-data-cart-update="index | plus 1" rv-data-cart-quantity="item.quantity | minus 1" rv-data-handle=item.handle" {% include 'gtm_add_product_tags', gtm_quantity: 1 %}>–</div>
+            <div class="value"><span rv-text="item.quantity"></span></div>
+            <div class="increment" data-increment-plus gtm-add-to-cart rv-data-cart-update="index | plus 1" rv-data-cart-quantity="item.quantity | plus 1" rv-data-handle=item.handle" {% include 'gtm_add_product_tags', gtm_quantity: 1 %}>+</div>
+          </div>
+          <div class="remove" gtm-remove-from-cart rv-data-cart-remove="index | plus 1" {% include 'gtm_add_product_tags', gtm_quantity: 'all' %}>
+            {% include 'remove_svg' %}
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <div class="info-and-checkout" rv-show="cart.item_count | gt 0">
+        <div class="subtotal">
+          <h4>{{ 'cart.subtotal' | t }}</h4>
+          <p class="item_count item-count">{ cart.item_count } { cart.item_count | pluralise '{{ 'cart.item_single' | t }}' '{{ 'cart.item_plural' | t }}' }</p>
+          <p class="money">{ cart.total_price | money Currency.currentCurrency }</p>
+        </div>
+      <form class="checkout-button" action="/cart" method="post">
+        <input type="submit" name="checkout" value="{{ 'general.actions.checkout' | t }}" id="checkout" data-terms-checkout/>
+      </form>
+      <p class="cart-disclaimer">{{ 'cart.disclaimer' | t }}</p>
+    </div>
+  </section>
+</section>

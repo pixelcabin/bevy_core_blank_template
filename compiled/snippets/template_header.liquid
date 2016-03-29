@@ -1,0 +1,55 @@
+{% comment %}
+<!--
+Arguments:
+header_title [String]
+page_object [Liquid Object] - When relevant, the object in use on the page this snippet is being included in. E.g. if used in the collection template, this would be the collection object. If used in the blog template, this would be the blog object.
+
+File Structure
+If used on an Article or Collection template, this snippet will use the page's featured image, sized using Shopify's size filters
+
+If used on any other page, various assets need to be added using the following filename structure:
+> `template_page-handle_size.jpg` - e.g. `blog_news_small.jpg`
+
+The following sizes should be created:
+* small: 640px
+* medium: 1024px
+* large: 1440px
+* xlarge: 1920px
+* xxlarge: 3000px
+
+-->
+{% endcomment %}
+
+{% assign content_wrapper_name = template | split: '.' | first | handleize %}
+  {% if content_wrapper_name == '404' %}
+  {% assign content_wrapper_name = 'four_zero_four' %}
+{% endif %}
+
+{% if content_wrapper_name == 'list-collections' %}
+  {% assign base_template_class = content_wrapper_name %}
+{% else %}
+  {% assign base_template_class = content_wrapper_name | split: '-' %}
+  {% assign base_template_class = base_template_class[0] %}
+{% endif %}
+<header class="header-image" alt="{{ header_title }}"
+       data-interchange="
+  {% case base_template_class %}
+    {% when 'collection', 'article' and if page_object.image %}
+    <!-- has object -->
+    {% if page_object.image %}
+      [{{ page_object.image | img_url: '1024x1024' }}, (default)],
+      [{{ page_object.image | img_url: '2048x2048' }}, (large)]
+    {% endif %}
+    {% else %}
+      {% assign base_filename = base_template_class | append: '_' | append: page_object.handle %}
+      [{{ base_filename | append: '_small.jpg' | asset_url }}, (default)],
+      [{{ base_filename | append: '_medium.jpg' | asset_url }}, (medium)],
+      [{{ base_filename | append: '_large.jpg' | asset_url }}, (large)],
+      [{{ base_filename | append: '_xlarge.jpg' | asset_url }}, (xlarge)],
+      [{{ base_filename | append: '_xxlarge.jpg' | asset_url }}, (xxlarge)],
+  {% endcase %}
+       ">
+
+  <h1>{{ header_title }}</h1>
+  <p>{{ page_object.description }}</p>
+</header>

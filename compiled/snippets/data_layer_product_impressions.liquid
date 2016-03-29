@@ -1,0 +1,43 @@
+<script>
+  // Measures product impressions and also tracks a standard
+  // pageview for the tag configuration.
+  // Product impressions are sent by pushing an impressions object
+  // containing one or more impressionFieldObjects.
+  dataLayer.push({
+    'event': 'post_product_impressions',
+    "ecommerce": {
+      "impressions": [
+      {% if impressions_collection %}
+
+        {% for impression_product in impressions_collection.products %}
+          {
+            "name": "{{ impression_product.title }}",       // Name or ID is required.
+              "id": "{{ impression_product.id }}",
+              "price": "{{ impression_product.price | divided_by: 100 }}",
+              "brand": "{{ impression_product.vendor }}",
+              "category": "{{ impression_product.type }}",
+              "list": "{{ list }}",
+              "position": {{ forloop.index0 }}
+          }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+
+      {% else %}
+
+        {% unless position %}
+          {% assign position = 0 %}
+        {% endunless %}
+        {
+          "name": "{{ impression_product.title }}",       // Name or ID is required.
+            "id": "{{ impression_product.id }}",
+            "price": "{{ impression_product.price | divided_by: 100 }}",
+            "brand": "{{ impression_product.vendor }}",
+            "category": "{{ impression_product.type }}",
+            "list": "{{ list }}",
+            "position": {{ position }}
+        }
+
+      {% endif %}
+      ]
+    }
+  });
+</script>

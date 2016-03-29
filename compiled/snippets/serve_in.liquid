@@ -1,0 +1,28 @@
+{% assign serve_products = '' %}
+
+{% for tag in product.tags %}
+  {% assign split_tag = tag | split: ':' %}
+  {% if split_tag[0] contains 'serve' %}
+
+      {% if serve_products != '' %}
+        {% assign serve_products = serve_products | append: ',' %}
+      {% endif %}
+
+  {% assign serve_products = serve_products | append: split_tag[1] %}
+  {% endif %}
+{% endfor %}
+
+{% assign serve_products = serve_products | split: ',' %}
+{% if serve_products.size > 0 %}
+<div class="meta-detail">
+<div class="detail-title">Serve in:</div>
+  <div>
+  {% for product_handle in serve_products %}
+    <span>
+      {% if collections[product_handle].url != '' %}
+      <a href="{{ collections[product_handle].url }}">{{ product_handle }}</a>{% else %}{{ product_handle }}{% endif %}{% if serve_products.size > 1 and forloop.index < serve_products.size %},{% endif %}
+    </span>
+  {% endfor %}
+  </div>
+</div>
+{% endif %}

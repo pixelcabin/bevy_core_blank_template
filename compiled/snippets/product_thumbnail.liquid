@@ -1,0 +1,49 @@
+{% assign image_size = settings.collection_prod_image_sizes %}
+
+{% assign product_collection_class = "" %}
+{% for product_collection in this_product.collections %}
+  {% for link in linklists.promo-stickers.links %}
+    {% if link.object.handle == product_collection.handle %}
+      {% assign product_collection_class = link.title | split: ':' %}
+      {% assign product_collection_color = product_collection_class[1] %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+<section class="product-thumbnail{% if settings.feature_product_badges %}{% unless product_collection_class == '' %}product-active {{ product_collection_class[0] }}{% endunless %} {{ product_collection_class[1] }}{% endif %}" data-handle="{{ this_product.handle }}" {% if this_product.template_suffix == 'not-for-sale'%}data-not-for-sale="true"{% endif %}>
+  <a href="{{ this_product.url }}" data-title="{{ this_product.title }}" data-id="{{ this_product.id }}" data-price="{{ this_product.price | divided_by: 100 }}" data-vendor="{{ this_product.vendor }}" data-type="{{ this_product.type }}">
+
+    {% if settings.feature_product_badges %}
+      <div class="product-badge">
+        <span>{% unless product_collection_class[0] == '' %}{{ product_collection_class[0] }}{% endunless %}</span>
+      </div>
+    {% endif %}
+
+    {% assign cropped_image = this_product.featured_image %}
+    {% for image in this_product.images %}
+      {% if image != this_product.featured_image %}
+        {% assign cropped_image = image %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+
+    {% if home_featured %}
+      <img class="home-featured" data-interchange="[{{ cropped_image | product_img_url: '1024x1024' }}, (default)], [{{ cropped_image | product_img_url: 'grande' }}, (medium)]" alt="{{ this_product.title }}" />
+    {% else %}
+      <img data-interchange="[{{ this_product.featured_image | product_img_url: '1024x1024' }}, (default)], [{{ this_product.featured_image | product_img_url: 'grande' }}, (medium)]" alt="{{ this_product.title }}" />
+    {% endif %}
+
+  </a>
+  <div class="title">{{ this_product.title }}</div>
+  <div class="details">
+    <span class="price">{{ this_product.price | money }} </span>
+    <span class="volume"> {% include 'product_meta', this_product: this_product, title: 'volume' %}</span>
+  </div>
+
+  {% include 'product_quick_add_button', this_product: this_product %}
+
+  {% assign sanitized_product_type = this_product.type | handleize %}
+  {% if sanitized_product_type == 'beer' %}
+    <a data-show-quickview data-handle="{{ this_product.handle }}" class="quickview-icon">{% include 'quickview_svg' %}</a>
+  {% endif %}
+</section>

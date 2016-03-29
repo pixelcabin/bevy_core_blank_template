@@ -1,0 +1,26 @@
+{% comment %}
+<!--
+Arguments:
+collection [Collection Liquid Object] - The collection object to iterate through
+count: [Boolean] - whether to display product count at the top of page
+-->
+{% endcomment %}
+
+{% assign products_per_row = 6 %}
+{% assign rows = 4 %}
+{% assign total_products = products_per_row | times: rows %}
+
+{% if count %}
+  <div class="product-count">{{ this_collection.products.size }} {{ this_collection.products.size | pluralize: 'beer', 'beers' }} </div>
+{% endif %}
+
+{% paginate this_collection.products by total_products %}
+  <section class="product-grid">
+    {% for product in this_collection.products %}
+      {% include 'product_thumbnail', this_product: product %}
+    {% endfor %}
+  </section>
+
+  {% include 'data_layer_product_impressions', impressions_collection: this_collection, list: 'Collection' %}
+  {% include 'pagination' %}
+{% endpaginate %}

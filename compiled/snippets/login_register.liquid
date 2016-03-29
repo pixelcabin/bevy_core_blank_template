@@ -1,0 +1,57 @@
+{% include 'redirect_if_logged_in' %}
+
+<!-- Customer Login -->
+<div class="customer-content-wrapper">
+  <section class="complete-password-reset-error">
+    {% form 'reset_customer_password' %}
+    {{ form.errors | default_errors }}
+    {% endform %}
+  </section>
+
+  <section class="customer-login" data-register-swap>
+    <h2>{{ 'customer_pages.login_signup.registered_customers' | t }}</h2>
+    <p>&nbsp;</p>
+    <ul class="recover-password-notice">
+      <li class="reset-success success">{{ 'customer_pages.password_reset.trigger.instructions_sent' | t }}</li>
+    </ul>
+
+    {% form 'customer_login' %}
+    {{ form.errors | default_errors }}
+    <input type="email" value="" name="customer[email]" id="customer-email"  size="30" placeholder="{{ 'general.forms.email' | t }}" />
+
+    <input type="password" value="" name="customer[password]" id="customer-password" size="16" placeholder="{{ 'customer_pages.general.password' | t }}" />
+
+    <input type="submit" value="{{ 'customer_pages.general.login' | t }}" />
+    <a href="#" class="show-forgot-password" onclick="return false;">{{ 'customer_pages.password_reset.trigger.forgot_password_link' | t }}</a>
+
+    {% endform %}
+  </section>
+  <!-- End Customer Login -->
+
+  <!-- Password reset -->
+  <section class="recover-password" style="display: none;">
+    <h2>{{ 'customer_pages.password_reset.trigger.title' | t }}</h2>
+    <p>{{ 'customer_pages.password_reset.trigger.blurb' | t }}</p>
+
+    {% form 'recover_customer_password' %}
+    {{ form.errors | default_errors }}
+    <input type="email" value="" size="30" name="email" id="recover-email" class="large" data-success="{% if form.posted_successfully? %}true{% else %}false{% endif %}" placeholder="Email" />
+
+    <input type="submit" value="{{ 'general.actions.submit' | t }}" />
+    <a href="#" class="recover-cancel" onclick="return false;">{{ 'general.actions.cancel' | t }}</a>
+    {% endform %}
+  </section>
+  <!-- End Password reset -->
+
+  <hr class="divider" />
+
+  <section class="register" data-register-swap>
+    <h2>{{ 'customer_pages.login_signup.new_customers' | t }}</h2>
+    <div class="cover">
+      <p>{{ 'customer_pages.login_signup.new_customers_blurb' | t }}</p>
+      <div class="button-main" data-register-show>{{ 'customer_pages.login_signup.register_now_button' | t }}</div>
+    </div>
+
+    {% include 'register_customer_form' %}
+  </section>
+</div>

@@ -1,0 +1,16 @@
+<div class="add-to-cart">
+  <h6 class="swatch-heading">{{ 'product_page.choose_amount' | t }}</h6>
+
+  <form action="/cart/add" method="post" class="form product-form" id="add-item-form" data-cart-submit>
+    <div class="form-content">
+
+      <select id="product-select" class="product-select" name="id" style="display: none" data-selected="{{ first_variant_set.option1 }}">
+        {% for variant in product.variants %}
+        <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+        {% endfor %}
+      </select>
+
+      {% include 'product_swatch' %}
+    </div>
+  </form>
+</div>

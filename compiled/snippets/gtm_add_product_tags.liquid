@@ -1,0 +1,12 @@
+{% if gtm_product %}
+gtm-product-title="{{ gtm_product.title }}" gtm-product-id="{{ gtm_product.id }}" gtm-product-price="{{ gtm_variant.price }}" gtm-product-vendor="{{ gtm_product.vendor }}" gtm-product-type="{{ gtm_product.type }}" gtm-product-variant-title="{{ gtm_variant.title }}"
+{% elsif rivets == 'quickview' %}
+rv-gtm-product-title="product.title" rv-gtm-product-id="product.id" rv-gtm-product-price="product.price" rv-gtm-product-vendor="product.vendor" rv-gtm-product-type="product.type" rv-gtm-product-variant-title="product | first_variant_title"
+{% else %}
+rv-gtm-product-title="item.product_title" rv-gtm-product-id="item.product_id" rv-gtm-product-price="item.price" rv-gtm-product-vendor="item.vendor" rv-gtm-product-type="item.product_type" rv-gtm-product-variant-title="item.variant_title"
+{% endif %}
+{% if gtm_quantity  == 'all' %}
+rv-gtm-product-quantity="item.quantity"
+{% else %}
+gtm-product-quantity="{{ gtm_quantity }}"
+{% endif %}

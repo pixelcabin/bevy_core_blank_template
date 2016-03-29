@@ -1,0 +1,225 @@
+[
+  {
+    "name": "General",
+    "settings": [
+      {
+        "type": "select",
+        "id": "theme_locale",
+        "label": "Theme Language",
+        "options": [
+          {
+            "value": "en",
+            "label": "English"
+          },
+          {
+            "value": "es",
+            "label": "Spanish"
+          }
+        ],
+        "default": "en"
+      },
+      {
+        "type": "checkbox",
+        "id": "digicert_seal",
+        "label": "Show Digicert Seal"
+      },
+      {
+        "type": "text",
+        "id": "hotjar_id",
+        "label": "HotJar ID"
+      },
+      {
+        "type": "text",
+        "id": "address1_limit",
+        "label": "Character limit on Address 1 at Checkout"
+      }
+    ]
+  },
+  {
+    "name": "Home Page Settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Welcome box"
+      },
+      {
+        "type": "text",
+        "id": "home_welcome_heading",
+        "label": "heading text for welcome area with search bar"
+      },
+      {
+        "type": "text",
+        "id": "home_welcome_subheading",
+        "label": "subheading text for welcome area with search bar"
+      },
+      {
+        "type": "header",
+        "content": "Hero image"
+      },
+      {
+        "type": "image",
+        "id": "welcome_small.jpg",
+        "label": "Hero image - 640px (mobile)"
+      },
+      {
+        "type": "image",
+        "id": "welcome_medium.jpg",
+        "label": "Hero image - 1024px (iPad)"
+      },
+      {
+        "type": "image",
+        "id": "welcome_large.jpg",
+        "label": "Hero image - 1440px (laptop)"
+      },
+      {
+        "type": "image",
+        "id": "welcome_xlarge.jpg",
+        "label": "Hero image - 1920px (larger desktop)"
+      },
+      {
+        "type": "image",
+        "id": "welcome_xxlarge.jpg",
+        "label": "Hero image - larger than 1920px (large screens)"
+      },
+      {
+        "type": "header",
+        "content": "Storytelling marketing box"
+      },
+      {
+        "type": "text",
+        "id": "home_marketing_box_title",
+        "label": "Heading for marketing box underneath featured products"
+      },
+      {
+        "type": "text",
+        "id": "home_marketing_box_text",
+        "label": "subheading for marketing box underneath featured products"
+      },
+      {
+        "type": "text",
+        "id": "home_marketing_box_button",
+        "label": "marketing box button text"
+      },
+      {
+        "type": "text",
+        "id": "home_marketing_box_link",
+        "label": "marketing box button link"
+      },
+      {
+        "type": "header",
+        "content": "Info box one"
+      },
+      {
+        "type": "text",
+        "id": "info_box_one_title",
+        "label": "Heading for marketing box underneath featured products"
+      },
+      {
+        "type": "text",
+        "id": "info_box_one_text",
+        "label": "subheading for marketing box underneath featured products"
+      },
+      {
+        "type": "text",
+        "id": "info_box_one_button",
+        "label": "marketing box button text"
+      },
+      {
+        "type": "text",
+        "id": "info_box_one_link",
+        "label": "marketing box button link"
+      },
+      {
+        "type": "header",
+        "content": "Info box two"
+      },
+      {
+        "type": "text",
+        "id": "info_box_two_title",
+        "label": "Heading for marketing box underneath featured products"
+      },
+      {
+        "type": "text",
+        "id": "info_box_two_text",
+        "label": "subheading for marketing box underneath featured products"
+      },
+      {
+        "type": "text",
+        "id": "info_box_two_button",
+        "label": "marketing box button text"
+      },
+      {
+        "type": "text",
+        "id": "info_box_two_link",
+        "label": "marketing box button link"
+      },
+      {
+        "type": "header",
+        "content": "Info box three"
+      },
+      {
+        "type": "text",
+        "id": "info_box_three_title",
+        "label": "Heading for marketing box underneath featured products"
+      },
+      {
+        "type": "text",
+        "id": "info_box_three_text",
+        "label": "subheading for marketing box underneath featured products"
+      },
+      {
+        "type": "text",
+        "id": "info_box_three_button",
+        "label": "marketing box button text"
+      },
+      {
+        "type": "text",
+        "id": "info_box_three_link",
+        "label": "marketing box button link"
+      }
+    ]
+  },
+  {
+    "name": "Promo Bar",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_promo_bar",
+        "label": "Show promo bar?",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Promo-bar content"
+      },
+      {
+        "type": "text",
+        "id": "promo-bar-text",
+        "label": "Promo bar message"
+      }
+    ]
+  },
+  {
+    "name": "Feature Toggles",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "feature_compare_at_price",
+        "label": "Enable Compare At Price",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "feature_product_badges",
+        "label": "Enable Product Badges",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "feature_serve_in",
+        "label": "Enable Serve In",
+        "default": false
+      }
+    ]
+  }
+]

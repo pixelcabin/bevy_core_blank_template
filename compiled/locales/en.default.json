@@ -1,0 +1,191 @@
+{
+  "general": {
+    "actions": {
+      "shop": "SHOP",
+      "faq": "FAQ",
+      "no": "No",
+      "yes": "Yes",
+      "add_to_cart": "Add to Cart",
+      "added": "Added!",
+      "checkout": "Checkout",
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "create": "Create",
+      "more": "More",
+      "search": "Search",
+      "edit": "edit",
+      "delete": "delete",
+      "soldout": "soldout",
+      "view_product": "View Product"
+    },
+    "forms": {
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "Email",
+      "password": "Password"
+    },
+    "nav": {
+      "account": "Account",
+      "bag": "Bag"
+    },
+    "footer": {
+      "legal": "Beber con moderación. Prohibida su venta a menores de 18 años include security certificate (SSL)",
+      "mailing_list": {
+        "message": "Join our email list to receive info on deals and new products",
+        "email_input_placeholder": "enter your email address",
+        "email_input_submit": "sign up",
+        "success_message": "Thanks",
+        "invalid_entry": "This email is invalid"
+      }
+    },
+    "meta_translations" : {
+      "color": "color",
+      "country": "country",
+      "style": "style",
+      "abv": "abv",
+      "flavor": "flavor"
+    },
+    "sort": {
+      "featured": "Featured",
+      "price_asc": "Price (Low to High)",
+      "price_desc": "Price (High to Low)",
+      "title_asc": "A-Z",
+      "title_desc": "Z-A",
+      "best_selling": "Best Selling"
+    }
+  },
+  "404": {
+    "title": "Sorry about this! We could not find what you were looking for.",
+    "link": "Go to the store homepage?"
+  },
+  "index": {
+  },
+  "age_gate": {
+    "welcome": "Welcome to BevyBar",
+    "privacy_notice": "[placeholder]",
+    "age_notice": "Drink in moderation. Must be 18 years or older [placeholder]",
+    "not_of_age": "You must be legal drinking age in place of residence to enter this site.",
+    "back": "Back",
+    "are_you_of_age": "We just need to check, are you of legal drinking age?"
+  },
+  "product_page": {
+    "by": "by",
+    "rating": "rating",
+    "quantity": "quantity",
+    "product_info": "product info",
+    "shipping_heading": "Free Shipping and Returns",
+    "shipping_info": "1–3 days within North America or 3–5 days internationally.",
+    "choose_amount": "choose an amount",
+    "in_the_pack": "in the pack",
+    "suggested_products": "Suggested Products",
+    "included_products": "In the pack",
+    "single": "single",
+    "pack": "pack",
+    "add_to_cart": "Add to cart",
+    "not_for_sale": "This product is not for sale individually"
+  },
+  "collections": {
+    "sort_by": "sort by",
+    "view_all_in": "view all in"
+  },
+  "pages": {
+  },
+  "cart": {
+    "heading": "My Cart",
+    "empty_cart": "You have no items in your cart",
+    "subtotal": "Subtotal",
+    "item_single": "Item",
+    "item_plural": "Items",
+    "disclaimer": "Shipping will be calculated at checkout"
+  },
+  "customer_pages": {
+    "general": {
+      "order": "Order",
+      "password": "Password",
+      "password_confirmation": "Password Confirmation",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "company": "Company",
+      "address_one": "Address Line One",
+      "address_two": "Address Line Two",
+      "city": "city",
+      "country": "country",
+      "province": "province",
+      "post-code": "post code",
+      "phone": "phone",
+      "store": "Shop",
+      "account": "Account",
+      "my_account": "My Account",
+      "login": "Login",
+      "logout": "Logout",
+      "email_address": "Email Address",
+      "primary_address": "Primary Address",
+      "back_to_account": "Back to Account Page",
+      "order_properties": {
+        "date": "Date",
+        "payment_status": "Payment Status",
+        "fulfillment_status": "Fulfillment Status",
+        "items": "Items",
+        "subtotal": "Subtotal",
+        "total": "Total",
+        "placed_on": "Placed on",
+        "discount": "Discount",
+        "shipping": "Shipping",
+        "tax": "Tax",
+        "order_cancelled": "Order Cancelled",
+        "on": "on",
+        "billing_address": "Billing Address",
+        "shipping_address": "Shipping Address",
+        "tax_invoice": "Tax Invoice"
+      }
+    },
+    "register": {
+      "title": "Register"
+    },
+    "login_signup": {
+      "title": "Login",
+      "registered_customers": "Registered Customers",
+      "new_customers": "New Customers",
+      "new_customers_blurb": "You can register for expedited checkout, account information, and exclusive promotional content.",
+      "register_now_button": "Register Now",
+      "create_account": "Create"
+    },
+    "password_reset": {
+      "trigger": {
+        "title": "Reset Password",
+        "blurb": "We will send you an email to reset your password.",
+        "forgot_password_link": "Forgot your password?",
+        "instructions_sent": "Instructions for resetting your password has been sent."
+      },
+      "complete": {
+        "title": "Reset Account Password",
+        "blurb": "Please enter a new password for "
+      }
+    },
+    "activate_account": {
+      "title": "Activate Account",
+      "blurb": "Please enter a password for your new account.",
+      "activate_account": "Activate Account",
+      "decline_invitation": "Decline Invitation"
+    },
+    "my_account": {
+      "title": "My Account",
+      "customer_greeting": "Hi",
+      "view_addresses": "View Addresses",
+      "my_orders": "My Orders",
+      "no_orders": "You haven't placed any orders yet."
+    },
+    "view_order": {
+      "download_tax_invoice": "Download tax invoice"
+    },
+    "addresses": {
+      "title": "My Addresses",
+      "contact_details": "Your Contact Details",
+      "add_new_address": "Add New Address",
+      "set_as_default": "Set As Default Address?",
+      "add_address": "Add Address",
+      "update_address": "Update Address",
+      "set_as_primary": "Set as Primary Address?"
+    }
+  }
+}
