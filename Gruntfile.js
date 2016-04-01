@@ -8,6 +8,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-sync');
+  grunt.loadNpmTasks('grunt-exec');
 
   var is_production = (grunt.option('env') == 'production');
 
@@ -178,11 +179,17 @@ module.exports = function(grunt) {
           livereload: true
         }
       }
+    },
+
+    exec: {
+      bower_install: {
+        command: 'bower install'
+      }
     }
   });
 
   grunt.registerTask('default', ['shopify']);
   grunt.registerTask('compile:development', ['jshint', 'uglify:development', 'sass:development', 'sync']);
   grunt.registerTask('compile:production', ['jshint', 'uglify:production', 'sass:production', 'sync']);
-
+  grunt.registerTask('update_bevy_core', ['exec:bower_install', 'compile:development', 'shopify:upload']);
 };
