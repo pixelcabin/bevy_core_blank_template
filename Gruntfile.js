@@ -191,5 +191,5 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['shopify']);
   grunt.registerTask('compile:development', ['jshint', 'uglify:development', 'sass:development', 'sync']);
   grunt.registerTask('compile:production', ['jshint', 'uglify:production', 'sass:production', 'sync']);
-  grunt.registerTask('update_bevy_core', ['exec:bower_install', 'compile:development', 'shopify:upload']);
+  grunt.registerTask('update_bevy_core', ['exec:bower_install', 'compile:development']);
 };
