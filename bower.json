@@ -1,6 +1,6 @@
 {
   "name": "bevybar-store",
   "dependencies": {
-    "bevy_core": "fury://pixelcabin/bevy_core#1.1.0"
+    "bevy_core": "fury://pixelcabin/bevy_core#1.2.0"
   }
 }

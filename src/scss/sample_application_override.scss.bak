@@ -1,0 +1,8 @@
+/* 
+This file shows how to override an included layout. This file should have the same name of the file you want to override, at which point it 
+will replace the default file on compilation. The @imports below will replicate the default css for beerhouse_mx, but can then have further
+files included.
+*/
+@import '../../bower_components/bevy_core/src/scss/regional_stylesheets/theme_variables_bevybar_ar';
+//Import local file
+@import '../../bower_components/bevy_core/src/scss/bevy_core';
