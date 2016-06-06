@@ -37,7 +37,8 @@ module.exports = function(grunt) {
       },
       development: {
         options: {
-          style: 'expanded'
+          style: 'expanded',
+          bundleExec: true
         },
         files: [{
           expand: true,
@@ -50,7 +51,8 @@ module.exports = function(grunt) {
       production: {
         options: {
           style: 'compressed',
-          sourcemap: 'none'
+          sourcemap: 'none',
+          bundleExec: true
         },
         files: [{
           expand: true,
