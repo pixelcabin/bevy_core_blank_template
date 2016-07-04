@@ -1,7 +1,0 @@
-<div class="search">
-  <form action="/search" method="get" class="search-form" role="search">
-    <input name="q" type="text" class="search-field" placeholder="{{ 'general.actions.search' | t }}" {% if search.performed %}value="{{ search.terms | escape }}"{% endif %} />
-    <input type="hidden" name="type" value="product" /> <!-- REVIEW: yes or no for MVP? -->
-    <input type="image" class="btn" src="{{ 'search.svg' | asset_url }}" value="Search" />
-  </form>
-</div>

@@ -1,8 +1,0 @@
-  {% if this_link.type == 'product_link' %}
-  {% include 'product_thumbnail', this_product: this_link.object %}
-  {% endif %}
-  {% if this_link.type == 'collection_link' %}
-  <a class="collection" href="{{ this_link.object.url }}">
-    view all in {{ this_link.object.title }}
-  </a>
-  {% endif %}

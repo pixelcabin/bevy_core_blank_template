@@ -1,8 +1,0 @@
-  <div class="top-section">
-    <div class="title-brand">
-      <h2>{{ product.title }}</h2>
-      {% unless sanitized_product_type == 'beerpack' %}
-      <p>{{ 'product_page.by' | t }} <a href="/collections/{{ product.vendor | handleize }}" itemprop="brand">{{ product.vendor }}</a></p>
-      {% endunless %}
-    </div>
-  </div>
