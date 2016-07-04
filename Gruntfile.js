@@ -48,6 +48,19 @@ module.exports = function(grunt) {
           ext: '.css'
         }]
       },
+      bevy_core_development: {
+        options: {
+          style: 'expanded',
+          bundleExec: true
+        },
+        files: [{
+          expand: true,
+          cwd: 'bower_components/bevy_core/src/scss',
+          src: ['*.scss'],
+          dest: 'shop/assets',
+          ext: '.css'
+        }]
+      },
       production: {
         options: {
           style: 'compressed',
@@ -57,6 +70,20 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'src/scss',
+          src: ['*.scss'],
+          dest: 'shop/assets',
+          ext: '.css'
+        }]
+      },
+      bevy_core_production: {
+        options: {
+          style: 'compressed',
+          sourcemap: 'none',
+          bundleExec: true
+        },
+        files: [{
+          expand: true,
+          cwd: 'bower_components/bevy_core/src/scss',
           src: ['*.scss'],
           dest: 'shop/assets',
           ext: '.css'
@@ -191,7 +218,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('default', ['shopify']);
-  grunt.registerTask('compile:development', ['jshint', 'uglify:development', 'sass:development', 'sync']);
-  grunt.registerTask('compile:production', ['jshint', 'uglify:production', 'sass:production', 'sync']);
+  grunt.registerTask('compile:development', ['jshint', 'uglify:development', 'sass:development', 'sass:bevy_core_development', 'sync']);
+  grunt.registerTask('compile:production', ['jshint', 'uglify:production', 'sass:production', 'sass:bevy_core_production', 'sync']);
   grunt.registerTask('update_bevy_core', ['exec:bower_install', 'compile:development']);
 };
