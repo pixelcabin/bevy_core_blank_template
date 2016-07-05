@@ -9,6 +9,6 @@
   "trailing": true,
   "undef": true,
   "unused": false,
-  "globals": { "$": true, "jQuery": true, "window": true, "document": true, "alert": true, "Shopify": true, "location": true, "Offline": true, "product_json": true, "ga": true, "history": true, "rivets": true, "Modernizr": true, "_": true, "getQueryVariable": true, "CartJS": true, "ProductStockCheck": true, "format_lang": true, "dataLayer": true, "bindGTMAddClick": true },
+  "globals": { "$": true, "jQuery": true, "window": true, "document": true, "alert": true, "Shopify": true, "location": true, "Offline": true, "product_json": true, "ga": true, "history": true, "rivets": true, "Modernizr": true, "_": true, "getQueryVariable": true, "CartJS": true, "ProductStockCheck": true, "format_lang": true, "dataLayer": true, "bindGTMAddClick": true, "FB": true, "Headroom": true, "Search": true, "Filters": true, "toggleSearchBar": true, "unescape": true },
   "node": true
 }
